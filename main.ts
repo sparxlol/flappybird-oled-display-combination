@@ -5,6 +5,13 @@ input.onButtonPressed(Button.A, function () {
         game.gameOver()
     }
 })
+input.onButtonPressed(Button.B, function () {
+    for (let index = 0; index < 101; index++) {
+        sprite.move(1)
+        sprite.ifOnEdgeBounce()
+        basic.pause(100)
+    }
+})
 let Pos = 0
 let sprite: game.LedSprite = null
 OLED.init(128, 64)
@@ -26,9 +33,4 @@ basic.forever(function () {
         )
     }
     OLED.clear()
-})
-basic.forever(function () {
-    sprite.move(1)
-    sprite.ifOnEdgeBounce()
-    basic.pause(100)
 })
